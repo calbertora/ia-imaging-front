@@ -1,24 +1,31 @@
 import React from 'react';
 import logo from './logo.svg';
+import './sass/main.scss'
 import './App.css';
 
+import { Main } from './views/Main';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './reducers/store';
+import useTimeout from './assets/hooks/useTimeout';
+import { setInitialLoad } from './reducers/slice';
+
+
+
+
+
 function App() {
+
+  const initialLoad = useSelector((state: RootState) => state.appConfig.initialLoad)
+
+  const dispatch = useDispatch();
+
+  const doDispatch = ()=>dispatch(setInitialLoad(false));
+
+  useTimeout(  doDispatch , initialLoad? 5000: 0 )
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Main />
     </div>
   );
 }
