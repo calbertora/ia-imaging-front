@@ -1,0 +1,27 @@
+.container{
+    display:flex;
+    flex-wrap: wrap;
+
+}
+.container-column{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+.container-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    grid-auto-flow: column;
+}
+
+/*grid*/
+@for $i from 1 through 12 {
+    .col#{$i} {
+      width: 100%/(12/$i);
+    }
+  }
+  
+

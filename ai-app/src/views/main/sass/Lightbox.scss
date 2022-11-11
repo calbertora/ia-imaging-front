@@ -1,0 +1,39 @@
+.lightbox-container{
+
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;  /*optional bg color*/
+    background-color: rgba(196, 155, 237, 0.52);
+    display:flex;
+    justify-content: center; /* align item horizontally */
+    align-items: center; /* align item vertically */
+    transition:all 3s;
+    opacity:1;
+
+    .lightbox{
+
+        width:80%;
+        height:80%;
+        background-color: black;
+
+        img{
+            height:100%;
+            width:auto;
+        }
+    }
+}
+
+.left{
+
+    transform: scale(0.5) translate(-100%, -100%);
+    opacity:0;
+
+}
+.top{
+    transform: scale(0.5) translate(0%, -100%);
+    opacity:0;
+
+}
